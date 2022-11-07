@@ -1,9 +1,10 @@
 
 import {useRef,useState, useEffect} from 'react'
 import * as d3 from 'd3'
+import { motion } from "framer-motion"
 
 
-export default function VideoGame() {
+export default function VideoGame(isVisible) {
     const ref = useRef();
     const [games,setGames] = useState([])
     useEffect(()=> {
@@ -153,7 +154,13 @@ export default function VideoGame() {
 
 
     return (
+      <motion.div   
+      initial={{ opacity: 0, scale: 0.25 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}>
+
         <div className="games">
+
         <h3 className='header'>Video Game Sales</h3>
         <h5 className='subtitle'>Top 100 Most Sold Video Games (Grouped By Platform)</h5>
         <form>
@@ -164,5 +171,6 @@ export default function VideoGame() {
       viewBox='-250 -100 1400 800'>
       </svg>
       </div>
+      </motion.div>
     )
 }

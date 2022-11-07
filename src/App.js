@@ -4,6 +4,7 @@ import Kick from './Kick'
 import VideoGame from './VideoGame'
 import Movie from './Movie'
 import Navbar from './Navbar'
+import { AnimatePresence } from "framer-motion";
 
 export default function App() {
     return (
@@ -11,12 +12,13 @@ export default function App() {
 
       <BrowserRouter>
       <Navbar />
+      <AnimatePresence exitBeforeEnter>
       <Routes>
         <Route path='/' element={<Kick />}  />
         <Route path='/videogames' element={<VideoGame />}  />
         <Route path='/movies' element={<Movie />}  />
-
         </Routes>
+        </AnimatePresence>
         </BrowserRouter>
         </div>
  

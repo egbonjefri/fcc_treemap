@@ -1,9 +1,10 @@
 
 import {useRef,useState, useEffect} from 'react'
 import * as d3 from 'd3'
+import { motion } from "framer-motion"
 
 
-export default function Movie() {
+export default function Movie(isVisible) {
     const ref = useRef();
     const [movie,setMovie] = useState([])
     useEffect(()=> {
@@ -112,7 +113,11 @@ export default function Movie() {
           // eslint-disable-next-line 
     },[movie.length])
     return (
-        <div className="movies">
+      <motion.div   
+      initial={{ opacity: 0, scale: 0.25 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}>
+                <div className="movies">
         <h3 className='header'>Movie Sales</h3>
         <h5 className='subtitle'>Top 100 Highest Grossing Movies (Grouped By Genre)</h5>
         <form>
@@ -123,5 +128,6 @@ export default function Movie() {
       viewBox='-250 -100 1400 800'>
       </svg>
       </div>
+      </motion.div>
     )
 }

@@ -71,13 +71,21 @@ form {
   position: absolute;
   top: 350px;
 }
+
 .navbar li{
   list-style: none;
   padding: 1rem;
   margin: 2rem 0;
   border-left: solid 2px rgb(163, 99, 2) 
 }
+.navbar li:hover{
+  text-decoration: underline;
+}
 a {
   text-decoration: none;
   color: white
+}
+a:hover {
+  color: rgb(124, 121, 111);
+
 }
