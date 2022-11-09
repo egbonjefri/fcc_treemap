@@ -18,9 +18,9 @@ export default function Movie(isVisible) {
         svgElement.attr('class', 'element');
         const tooltip = d3.select('body').append('div').attr('class','tooltip-style').style('opacity',0)
         var margin = {top: 50, right: 10, bottom: 10, left: 10},
-        width = 1500 - margin.left - margin.right,
-        height = 800 - margin.top - margin.bottom,
-        color = d3.scaleOrdinal()
+        width = window.innerWidth - margin.left - margin.right-(window.innerWidth/4),
+        height = window.innerHeight - margin.top - margin.bottom -(window.innerHeight/5),
+          color = d3.scaleOrdinal()
         .range(['#8dd3c7', '#ffffb3', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69']);
         ;
 
@@ -29,7 +29,7 @@ export default function Movie(isVisible) {
         .attr('class', 'new')
         .style("width", (width + margin.left + margin.right) + "px")
         .style("height", (height + margin.top + margin.bottom) + "px")
-        .style("left", 50+margin.left + "px")
+        .style("left", margin.left + "px")
         .style("top", 120+margin.top + "px");
         var root = d3.hierarchy(movie,  (d) => d.children)
         .sum((d) => d.value);

@@ -12,7 +12,7 @@ export default function App() {
 
       <BrowserRouter>
       <Navbar />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode='wait'>
       <Routes>
         <Route path='/' element={<Kick />}  />
         <Route path='/videogames' element={<VideoGame />}  />
@@ -20,6 +20,7 @@ export default function App() {
         </Routes>
         </AnimatePresence>
         </BrowserRouter>
+        <p className='footer'> Created by @egbonjefri for freecodecamp</p>
         </div>
  
      

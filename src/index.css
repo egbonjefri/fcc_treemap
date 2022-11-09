@@ -13,14 +13,15 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
+  height: 100%
 }
 
 .new {
   position: absolute;
-  left: 0;
-  right: 0;
   margin-left: auto;
   margin-right: auto;
+  left: 0; 
+  right: 0; 
 }
 .node {
   border: solid 1px #1b1b1b;
@@ -32,7 +33,6 @@ body{
   text-align: center;
   display: flex;
   justify-content: center;
-
 }
 form {
   position: relative;
@@ -50,8 +50,40 @@ form {
   font-size: 32px
 }
 .element {
-  margin-top: -60px;
-  font-weight: bold;
+  margin-top: -3%;
+}
+@media(max-width:900px) {
+  .element{
+   margin-top: 10%
+  }
+  .navbar{
+    left: -5%
+  }
+  a {
+    font-size: 7px
+  }
+  .tooltip-style{
+    width: 30% !important
+  }
+}
+@media(max-width:480px) {
+  a {
+    font-size: 4px;
+    font-weight: 700
+  }
+  .navbar{
+    left: -10%;
+    top: 30% !important
+  }
+  .navbar li {
+    padding: 0.25rem!important
+  }
+  .new{
+    margin-top: 5% !important
+  }
+  .tooltip-style{
+    width: 50% !important
+  }
 }
 .tooltip-style {
   font: 18px sans-serif;
@@ -88,4 +120,15 @@ a {
 a:hover {
   color: rgb(124, 121, 111);
 
+}
+.footer{
+  font-size: 10px;
+  text-align: center;
+  top: 54rem;
+  width: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  position: absolute;
 }

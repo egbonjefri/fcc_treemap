@@ -18,9 +18,9 @@ export default function VideoGame(isVisible) {
         svgElement.attr('class', 'element');
         const tooltip = d3.select('body').append('div').attr('class','tooltip-style').style('opacity',0)
         var margin = {top: 50, right: 10, bottom: 10, left: 10},
-        width = 1500 - margin.left - margin.right,
-        height = 800 - margin.top - margin.bottom,
-        color = d3.scaleOrdinal()
+        width = window.innerWidth - margin.left - margin.right-(window.innerWidth/4),
+        height = window.innerHeight - margin.top - margin.bottom -(window.innerHeight/5),
+          color = d3.scaleOrdinal()
     .range(["#54464A", "#2B3454", "#4D0054", "#540D27", "#005422", "#3DBAB3", "#BA7D7D", "#2013BA", "#6B7BB3", "#B37D00", "#000D3B","#002D38","#1F0000", "#13001F", "#575757", "#3E4057","#F00000", '#FF5C5C', '#070808']);
 
         var treemap = d3.treemap().size([width, height]);
@@ -28,7 +28,7 @@ export default function VideoGame(isVisible) {
         .attr('class', 'new')
         .style("width", (width + margin.left + margin.right) + "px")
         .style("height", (height + margin.top + margin.bottom) + "px")
-        .style("left", 50+margin.left + "px")
+        .style("left", margin.left + "px")
         .style("top", 120+margin.top + "px");
         var root = d3.hierarchy(games,  (d) => d.children)
         .sum((d) => d.value);
@@ -42,7 +42,7 @@ export default function VideoGame(isVisible) {
           .style("top", (d) => d.y0 + "px")
           .style("width", (d) => Math.max(0, d.x1 - d.x0) + "px")
           .style("height", (d) => Math.max(0, d.y1 - d.y0) + "px")
-          .style('padding', '3px')
+          .style('padding', '1px')
           .style("background", (d)=>color(d.data.category))
           .text((d) => d.data.name)
           .style('font', '10px')

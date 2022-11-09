@@ -1,7 +1,6 @@
 import {useRef,useEffect} from 'react'
 import kickStarter from './kickStarter'
 import * as d3 from 'd3'
-
 function Kick() {
   const ref = useRef()
 
@@ -12,17 +11,16 @@ function Kick() {
     svgElement.attr('class', 'element');
     const tooltip = d3.select('body').append('div').attr('class','tooltip-style').style('opacity',0)
     var margin = {top: 50, right: 10, bottom: 10, left: 10},
-    width = 1500 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom,
+    width = window.innerWidth - margin.left - margin.right-(window.innerWidth/4),
+    height = window.innerHeight - margin.top - margin.bottom -(window.innerHeight/5),
     color = d3.scaleOrdinal()
     .range(["#54464A", "#2B3454", "#4D0054", "#540D27", "#005422", "#3DBAB3", "#BA7D7D", "#2013BA", "#6B7BB3", "#B37D00", "#000D3B","#002D38","#1F0000", "#13001F", "#575757", "#3E4057","#F00000", '#FF5C5C', '#070808']);
-
-    var treemap = d3.treemap().size([width, height]);
+    var treemap = d3.treemap().size([width,height])
     var div = d3.select(".body").append("div")
     .attr('class', 'new')
-    .style("width", (width + margin.left + margin.right) + "px")
+    .style("width", (width + margin.left + margin.right)+ "px")
     .style("height", (height + margin.top + margin.bottom) + "px")
-    .style("left", 50+margin.left + "px")
+    .style("left", margin.left + "px")
     .style("top", 120+margin.top + "px");
     var root = d3.hierarchy(kickStarter.kickStarter, (d) => d.children)
     .sum((d) => d.value);
@@ -63,60 +61,60 @@ function Kick() {
         tooltip.style('opacity', 0) 
       });
       svgElement.append('rect').attr('x',1000).attr('y',-90).attr('width',20).attr('height',20).style('fill','#54464A')
-      svgElement.append('text').attr('x',1025).attr('y',-80).text('Product Design').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',-80).text('Product Design').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',-60).attr('width',20).attr('height',20).style('fill','#2B3454')
-      svgElement.append('text').attr('x',1025).attr('y',-50).text('Tabletop Games').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',-50).text('Tabletop Games').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',-30).attr('width',20).attr('height',20).style('fill','#4D0054')
-      svgElement.append('text').attr('x',1025).attr('y',-20).text('Gaming Hardware').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',-20).text('Gaming Hardware').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',0).attr('width',20).attr('height',20).style('fill','#540D27')
-      svgElement.append('text').attr('x',1025).attr('y',10).text('Video Games').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',10).text('Video Games').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',30).attr('width',20).attr('height',20).style('fill','#005422')
-      svgElement.append('text').attr('x',1025).attr('y',40).text('Sound').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',40).text('Sound').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',60).attr('width',20).attr('height',20).style('fill','#3DBAB3')
-      svgElement.append('text').attr('x',1025).attr('y',70).text('Television').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',70).text('Television').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',90).attr('width',20).attr('height',20).style('fill','#BA7D7D')
-      svgElement.append('text').attr('x',1025).attr('y',100).text('Narrative Film').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',100).text('Narrative Film').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',120).attr('width',20).attr('height',20).style('fill','#2013BA')
-      svgElement.append('text').attr('x',1025).attr('y',130).text('Web').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',130).text('Web').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',150).attr('width',20).attr('height',20).style('fill','#6B7BB3')
-      svgElement.append('text').attr('x',1025).attr('y',160).text('Hardware').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',160).text('Hardware').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',180).attr('width',20).attr('height',20).style('fill','#B37D00')
-      svgElement.append('text').attr('x',1025).attr('y',190).text('Games').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',190).text('Games').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',210).attr('width',20).attr('height',20).style('fill','#000D3B')
-      svgElement.append('text').attr('x',1025).attr('y',220).text('3D Printing').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',220).text('3D Printing').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',240).attr('width',20).attr('height',20).style('fill','#002D38')
-      svgElement.append('text').attr('x',1025).attr('y',250).text('Wearables').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',250).text('Wearables').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',270).attr('width',20).attr('height',20).style('fill','#1F0000')
-      svgElement.append('text').attr('x',1025).attr('y',280).text('Technology').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',280).text('Technology').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',300).attr('width',20).attr('height',20).style('fill','#13001F')
-      svgElement.append('text').attr('x',1025).attr('y',310).text('Sculpture').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',310).text('Sculpture').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',330).attr('width',20).attr('height',20).style('fill','#575757')
-      svgElement.append('text').attr('x',1025).attr('y',340).text('Apparel').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',340).text('Apparel').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',360).attr('width',20).attr('height',20).style('fill','#3E4057')
-      svgElement.append('text').attr('x',1025).attr('y',370).text('Food').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',370).text('Food').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',390).attr('width',20).attr('height',20).style('fill','#F00000')
-      svgElement.append('text').attr('x',1025).attr('y',400).text('Art').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',400).text('Art').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       svgElement.append('rect').attr('x',1000).attr('y',420).attr('width',20).attr('height',20).style('fill','#FF5C5C')
-      svgElement.append('text').attr('x',1025).attr('y',430).text('Gadgets').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',430).text('Gadgets').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
       svgElement.append('rect').attr('x',1000).attr('y',450).attr('width',20).attr('height',20).style('fill','#070808')
-      svgElement.append('text').attr('x',1025).attr('y',460).text('Drinks').style('font-size','7.5px').attr('alignment-baseline','middle').attr('fill','gray')
+      svgElement.append('text').attr('x',1025).attr('y',460).text('Drinks').style('font-size','0.5rem').attr('alignment-baseline','middle').attr('fill','gray')
 
       d3.selectAll("input").on("change", function change() {
         const value = this.value === "count"
